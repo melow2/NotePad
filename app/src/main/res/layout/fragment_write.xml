@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="WriteBinder">
+        <variable
+            name="handlers"
+            type="com.khs.noteexample.note.view.handlers.WriteHandlers" />
+    </data>
+
+    <ScrollView
+        android:background="@color/colorBlack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <RelativeLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/title_root_view"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:text="제목"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <EditText
+                        android:id="@+id/edit_title"
+                        android:maxLines="1"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/content_root_view"
+                android:layout_below="@+id/title_root_view"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/edit_content"
+                    android:background="@drawable/default_background"
+                    android:padding="15dp"
+                    android:textColorHint="@color/colorBlack"
+                    android:hint="메모 할 내용을 작성해주세요."
+                    android:textColor="@color/colorWhite"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|left"
+                    android:inputType="textMultiLine"
+                    android:scrollHorizontally="false"
+                    android:minWidth="10dip"
+                    android:maxWidth="5dip"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/image_root_view"
+                android:background="@drawable/default_background"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_below="@+id/content_root_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+<!--                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/image_recyclerview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3">
+                </androidx.recyclerview.widget.RecyclerView>-->
+                <TextView
+                    android:id="@+id/btn_plus"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_add_white"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_below="@+id/image_root_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:text="취소하기"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/default_background"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/btn_apply"
+                    android:onClick="@{(v)->handlers.onApplyButton(v)}"
+                    android:text="등록하기"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/default_background"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</layout>
